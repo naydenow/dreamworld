@@ -51,6 +51,7 @@ var WWShaders = function(camera){
 THREE.WWShaders = new WWShaders();
 
 
+
 THREE.ShaderLib['translucentBoard'] = {
     uniforms: THREE.UniformsUtils.merge( [
         {   texture1:	{ type: "t", value: null },

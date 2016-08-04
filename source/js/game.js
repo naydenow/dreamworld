@@ -26,6 +26,14 @@ export default class Game {
 
     this.init();
     this.animate();
+
+
+
+    this.testWorker = new Thread("workers/test.js", "Test");
+    this.collisionWorker.on("t", (nw) => {
+       alert("workerMessage " + nw);
+    });
+    this.testWorker.emit("t","hi lol");
   }
 
 
