@@ -16,7 +16,7 @@ export default class Game {
     this.container.appendChild(this.stats.dom);
     this.controls = new Controls(this.camera, this.renderer.domElement, this);
 
-    this.world = new World(this.scene, 'test', this.controls._control.getObject());
+    this.world = new World(this.scene, 'dreamworld', this.controls._control.getObject());
 
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -30,7 +30,7 @@ export default class Game {
 
 
     this.testWorker = new Thread("workers/test.js", "Test");
-    this.collisionWorker.on("t", (nw) => {
+    this.testWorker.on("t", (nw) => {
        alert("workerMessage " + nw);
     });
     this.testWorker.emit("t","hi lol");

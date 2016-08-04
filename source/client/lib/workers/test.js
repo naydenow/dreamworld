@@ -2,7 +2,7 @@
 Тестовый воркер
 */
 
-self.importScripts('lib/three.js');
+self.importScripts('three.js');
 
 function Test(main) {
     this.main = main;
