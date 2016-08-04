@@ -16,7 +16,7 @@ export default class Game {
     this.container.appendChild(this.stats.dom);
     this.controls = new Controls(this.camera, this.renderer.domElement, this);
 
-    this.world = new World(this.scene, 'test', this.controls._control.getObject() );
+    this.world = new World(this.scene, 'test', this.controls._control.getObject());
 
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -27,8 +27,6 @@ export default class Game {
     this.init();
     this.animate();
   }
-
-
 
 
   /* Инициализация сцены */
