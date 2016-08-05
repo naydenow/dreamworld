@@ -43,7 +43,9 @@ THREE.VRControls = function (object, onError) {
     }
 
 
-    
+
+
+
 
     // the Rift SDK returns the position in meters
     // this scale factor allows the user to define how meters
