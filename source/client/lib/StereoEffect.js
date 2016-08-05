@@ -21,9 +21,7 @@ THREE.StereoEffect = function (renderer) {
         scene.updateMatrixWorld();
 
         if (camera.parent === null) camera.updateMatrixWorld();
-
         _stereo.update(camera);
-
         var size = renderer.getSize();
 
         renderer.setScissorTest(true);
