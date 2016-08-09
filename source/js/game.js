@@ -31,7 +31,7 @@ export default class Game {
 
     this.testWorker = new Thread("workers/test.js", "Test");
     this.testWorker.on("t", (nw) => {
-       alert("workerMessage " + nw);
+       //alert("workerMessage " + nw);
     });
     this.testWorker.emit("t","hi lol");
   }

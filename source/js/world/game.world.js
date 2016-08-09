@@ -20,13 +20,13 @@ export default class World {
   }
 
   initSimpl() {
-    var light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
+/*    var light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
     light.position.set(0.5, 1, 0.75);
     this.scene.add(light);
 
     var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
     directionalLight.position.set( 0, 1, 0 );
-    this.scene.add( directionalLight );
+    this.scene.add( directionalLight );*/
   }
 
 

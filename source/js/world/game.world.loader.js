@@ -116,10 +116,10 @@ export default class WorldLoader {
       };
       for (var unif in  material.uniforms) {
         if (shaderMaterilaProps.uniforms[unif] !== undefined) {
-          var val = this.urlPrefix + material.uniforms[unif].value;
+          var val =  material.uniforms[unif].value;
           if (shaderMaterilaProps.uniforms[unif].type === "t") {
             //texture
-            val = new THREE.ImageUtils.loadTexture(val);
+            val = new THREE.ImageUtils.loadTexture(this.urlPrefix +val);
             val.repeat.set(4, 4);
           }
           if (shaderMaterilaProps.uniforms[unif].type === "v3") {
@@ -155,8 +155,12 @@ export default class WorldLoader {
         }
         materialoption.map = texture;
       }
+
+
       var material = new THREE[material.TYPE](materialoption);
       return material;
+
+
     }
 
   }
@@ -221,7 +225,7 @@ export default class WorldLoader {
   }
 
   loadGeometru(data) {
-
+    console.log("geometry data",data);
     var geometry = new THREE.PlaneGeometry(data.option.width, data.option.height, data.option.wsegment, data.option.hsegment);
     geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
 
@@ -232,7 +236,7 @@ export default class WorldLoader {
       geometry.vertices[gl].z = data.geometry.vertices[gl].z;
     }
 
-    var geometry = new THREE.BufferGeometry().fromGeometry(geometry);
+    //var geometry = new THREE.BufferGeometry().fromGeometry(geometry);
     return geometry;
 
   }
