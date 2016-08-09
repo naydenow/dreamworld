@@ -143,9 +143,9 @@ export default class WorldLoader {
       return mat;
     } else {
       var materialoption = material.matrialoptions;
-      if (material.IMG !== undefined) {
+      if (material.MAP !== undefined) {
         THREE.ImageUtils.crossOrigin = "anonymous";
-        var texture                  = THREE.ImageUtils.loadTexture(material.IMG);
+        var texture                  = THREE.ImageUtils.loadTexture(this.urlPrefix + material.MAP);
         texture.wrapS                = THREE.RepeatWrapping;
         texture.wrapT                = THREE.RepeatWrapping;
         if (material.TEXTURE_REPAIRX !== undefined) {
@@ -181,6 +181,8 @@ export default class WorldLoader {
       mesh.scale.x    = terra.G.scale.x;
       mesh.scale.y    = terra.G.scale.y;
       mesh.scale.z    = terra.G.scale.z;
+      if (material.uniforms === undefined)
+        material.uniforms = {};
 
       for (var d in terra.G.option) {
         mesh[d] = terra.G.option[d];
