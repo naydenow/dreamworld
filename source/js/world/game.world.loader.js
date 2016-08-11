@@ -46,7 +46,18 @@ export default class WorldLoader {
             var materia  = new THREE.MeshFaceMaterial([material]);
 
           } else {
-            var materia = new THREE.MeshFaceMaterial(materials);
+           // var materia = new THREE.MeshFaceMaterial(materials);
+
+            var shader = THREE.ShaderLib['modelColor'];
+            var materiaArr = [];
+            materials.forEach(function(m){
+                var sm = new THREE.RawShaderMaterial(shader);
+                sm.uniforms.color.value = m.color.toArray();
+                materiaArr.push(sm);
+            })
+            var materia = new THREE.MeshFaceMaterial(materiaArr);
+
+
           }
 
           var morph2        = new THREE.Mesh(geometry, materia);
@@ -236,7 +247,12 @@ export default class WorldLoader {
       geometry.vertices[gl].z = data.geometry.vertices[gl].z;
     }
 
-    //var geometry = new THREE.BufferGeometry().fromGeometry(geometry);
+    geometry.computeFaceNormals();
+    geometry.computeVertexNormals();
+    geometry.computeTangents();
+    geometry.computeLineDistances();
+    geometry = new THREE.BufferGeometry().fromGeometry(geometry);
+
     return geometry;
 
   }

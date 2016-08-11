@@ -40,9 +40,9 @@ export default class Controls {
     this._control.getObject().translateY(this.velocity.y * delta);
     this._control.getObject().translateZ(this.velocity.z * delta);
 
-    if (this._control.getObject().position.y < 500) {
+    if (this._control.getObject().position.y < 20) {
       this.velocity.y                      = 0;
-      this._control.getObject().position.y = 500;
+      this._control.getObject().position.y = 20;
       this.canJump                         = true;
     }
 

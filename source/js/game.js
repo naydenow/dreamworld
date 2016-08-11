@@ -41,6 +41,7 @@ export default class Game {
   init() {
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setClearColor( 0xb1b6ff, 1 );
     this.container.appendChild(this.renderer.domElement);
   }
 
